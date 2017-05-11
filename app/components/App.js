@@ -8,6 +8,7 @@ import Popular from './Popular';
 import Nav from './Nav';
 import Home from './Home';
 import Battle from './Battle';
+import BattleResults from "./BattleResults";
 
 export default class extends React.Component {
     render() {
@@ -18,6 +19,7 @@ export default class extends React.Component {
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/battle" component={Battle}/>
+                        <Route  path="/battle/results" component={BattleResults}/>
                         <Route path="/popular" component={Popular}/>
                         <Route render={() => {
                             return ( <div>Not Found</div> )

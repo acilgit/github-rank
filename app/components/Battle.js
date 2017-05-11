@@ -5,8 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-import api from '../utils/api';
-
+import PlayerPreview from './PlayerPreview';
 
 export default class Battle extends React.Component {
     constructor(props) {
@@ -51,9 +50,13 @@ export default class Battle extends React.Component {
                     {playerOneImage !== null &&
                     <PlayerPreview
                         avatar={playerOneImage}
-                        username={playerOneName}
-                        id="playerOne"
-                        onReset={this._onReset}/>}
+                        username={playerOneName}>
+                        <button
+                            onClick={this._onReset.bind(null, 'playerOne')}
+                            className="reset">
+                            Reset
+                        </button>
+                    </PlayerPreview>}
                     {!playerTwoName &&
                     <PlayerInput
                         id="playerTwo"
@@ -62,9 +65,13 @@ export default class Battle extends React.Component {
                     {playerTwoImage !== null &&
                     <PlayerPreview
                         avatar={playerTwoImage}
-                        username={playerTwoName}
-                        id="playerTwo"
-                        onReset={this._onReset}/>}
+                        username={playerTwoName}>
+                        <button
+                            onClick={this._onReset.bind(null, 'playerTwo')}
+                            className="reset">
+                            Reset
+                        </button>
+                    </PlayerPreview>}
                 </div>
                 {playerOneImage && playerTwoImage &&
                 <Link className="button" to={{
@@ -135,19 +142,3 @@ PlayerInput.propTypes = {
     label: PropTypes.string.isRequired,
     onSubmit: PropTypes.func.isRequired
 };
-
-function PlayerPreview(props) {
-    return (
-        <div>
-            <div className="column">
-                <img src={props.avatar} alt={'Avatar for ' + props.username} className="avatar"/>
-                <h2 className="username">@{props.username}</h2>
-            </div>
-            <button
-                onClick={props.onReset.bind(null, props.id)}
-                className="reset">
-                Reset
-            </button>
-        </div>
-    )
-}
