@@ -9,7 +9,7 @@ var config = {
     entry: './app/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index_bundle.js',
+        filename: 'bundle.js',
         publicPath: '/'
     },
     module: {
