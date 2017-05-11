@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SelectLanguage from './SelectLanguage';
+import Loading from './Loading';
 import api from '../utils/api';
 
 
@@ -27,8 +28,8 @@ export default class Popular extends React.Component {
             .then(repos => {
                 this.setState({
                     repos: repos
-            })
-            })
+                })
+            });
         this.setState(() => {
             return {
                 selectedLanguage: lang
@@ -45,7 +46,7 @@ export default class Popular extends React.Component {
                     languages={languages}
                     onSelect={this._updateLanguage}/>
                 {!this.state.repos
-                    ? <p>Loading</p>
+                    ? <Loading speed={200}/>
                     : <RepoGrid repos={this.state.repos}/>
                 }
             </div>

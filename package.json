@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "webpack": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "set NODE_ENV='production1' && webpack -p",
+    "deploy": "npm run build",
+    "webpack": "webpack"
   },
   "babel": {
     "presets": [
