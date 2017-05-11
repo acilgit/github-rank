@@ -42,7 +42,6 @@ export default class Battle extends React.Component {
         return (
             <div>
                 <div className="row">
-                    <PlayerInput {...match}/>
                     {!playerOneName &&
                     <PlayerInput
                         id="playerOne"
