@@ -5,7 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-import PlayerPreview from './PlayerPreview';
+import PlayerPreview from '../components/PlayerPreview';
 
 export default class Battle extends React.Component {
     constructor(props) {

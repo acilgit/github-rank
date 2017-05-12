@@ -6,7 +6,7 @@ import queryString from 'query-string';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import api from '../utils/api';
+import api from '../api/index';
 import PlayerPreview from './PlayerPreview';
 
 
