@@ -4,13 +4,13 @@
 import * as types from '../actions/actionTypes';
 
 let initialState = {
-    repos: null,
-    selectedLanguage: 'All'
+    isAuth: false,
+    user: {}
 };
 
 export default  function(state = initialState, action) {
     switch (action.type) {
-        case types.updateLanguage:
+        case types.setCurrentUser:
             return Object.assign({}, state, action.state);
         default:
             return state;

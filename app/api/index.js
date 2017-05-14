@@ -28,7 +28,6 @@ function getUserData(player) {
     ]).then((data) => {
         let profile = data[0];
         let repos = data[1];
-
         return {
             profile: profile,
             score: calculateScore(profile, repos)
@@ -73,7 +72,15 @@ module.exports = {
             .then(res => {
                 console.log('res: ', res.data.items);
                 return res.data.items;
-            })//.catch(e => console.log('error:', e));
+            }) //.catch(e => console.log('error:', e));
 
+    },
+    login: (data) => {
+       return axios.post('/api/auth', data)
+            .then(res => {
+                const token = res.data.token;
+                localStorage.setItem('jwtToken', token);
+                return token;
+            })
     }
 };

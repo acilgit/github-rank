@@ -23,7 +23,11 @@ var config = {
     },
     plugins: [new HtmlWebpackPlugin({
         template: 'app/index.html'
-    })]
+    })],
+    node:{
+        net: 'empty',
+        dns: 'empty'
+    }
 };
 
 if (process.env.NODE_ENV === 'production') {

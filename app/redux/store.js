@@ -3,8 +3,11 @@
  */
 import {createStore, compose, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
+import jwt from 'jsonwebtoken';
 
 import rootReducer from './reducer';
+import {setToken} from '../api/methods';
+import actions from '../redux/actions';
 
 /*let store = createStore(rootReducer, applyMiddleware(thunk),
  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -28,5 +31,12 @@ const store = createStore(
     // initialState,
     composeEnhancers(applyMiddleware(thunk))
 );
+
+if (localStorage.jwtToken) {
+    let token = localStorage.jwtToken;
+    setToken(token);
+    let user = jwt.decode(token);
+    store.dispatch(actions.setCurrentUser(user))
+}
 
 export default store;

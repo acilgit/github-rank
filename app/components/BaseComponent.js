@@ -8,7 +8,7 @@ CL = (data) => {
     console.log(data);
 };
 
-export default class BaseComponent extends React.Component {
+ class BaseComponent extends React.Component {
     // 构造
     constructor(props) {
         super(props);

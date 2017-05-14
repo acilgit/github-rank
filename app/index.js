@@ -2,7 +2,7 @@
  * Created by XY on 2017-05-10.
  */
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import {BrowserRouter} from 'react-router-dom'
 import {Provider} from 'react-redux';
 import history from 'history';
@@ -12,7 +12,7 @@ import App from './containers/App';
 
 import './index.css';
 
-ReactDOM.render(
+render(
     <BrowserRouter history={history}>
         <Provider store={store}>
             <App />
